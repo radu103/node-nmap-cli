@@ -6,3 +6,11 @@ nmap.nmapLocation = 'nmap';
 
 let hostname = appArgs[0];
 let quickscan = new nmap.QuickScan(hostname);
+
+quickscan.on('complete', function(data){
+    console.log(data);
+});
+
+quickscan.on('error', function(error){
+    console.log(error);
+});
